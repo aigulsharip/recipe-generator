@@ -8,9 +8,6 @@ function App() {
   return (
     <div>
       <Header />
-      <SearchRecipe />
-      <MealPlanner />
-      <RecipesByIngredients/>
     </div>
   );
 }
