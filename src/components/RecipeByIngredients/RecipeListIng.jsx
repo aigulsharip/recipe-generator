@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const RecipeList = ({ recipeData }) => {
+const RecipeListIng = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
@@ -23,7 +23,7 @@ const RecipeList = ({ recipeData }) => {
     // https://api.spoonacular.com/recipes/informationBulk?ids=715538,716429
 
     let generateIDs = "";
-    recipeData.results.forEach((element) => {
+    recipeData.forEach((element) => {
       generateIDs += element.id + ",";
     });
 
@@ -48,7 +48,7 @@ const RecipeList = ({ recipeData }) => {
     <div>
       <article>
         {recipeData &&
-          recipeData.results.map((recipe) => {
+          recipeData.map((recipe) => {
             return (
               <div key={recipe.id}>
                 <h2>{recipe.title}</h2>
@@ -72,10 +72,9 @@ const RecipeList = ({ recipeData }) => {
               </div>
             );
           })}
-
       </article>
     </div>
   );
 };
 
-export default RecipeList;
+export default RecipeListIng;
