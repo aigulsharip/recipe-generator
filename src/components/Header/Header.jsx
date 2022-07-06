@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MealPlanner from "../mealplanner/MealPlanner";
 import RecipesByIngredients from "../RecipeByIngredients/RecipesByIngredients";
 import { SearchRecipe } from "../search/SearchRecipe";
+import RandomRecipe from "../RandomRecipe/RandomRecipe";
 
 const Header = () => {
   return (
@@ -67,6 +68,12 @@ const Header = () => {
                   Meal Planner
                 </a>
               </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/randomrecipe">
+                  Random Recipe
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -79,7 +86,8 @@ const Header = () => {
             path="/searchByIngredients"
             element={<RecipesByIngredients />}
           />
-          searchByIngredients
+          <Route exact path="/Randomrecipe" element={<RandomRecipe />} />
+          
         </Routes>
       </Router>
     </div>

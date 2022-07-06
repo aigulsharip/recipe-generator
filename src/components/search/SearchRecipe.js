@@ -36,15 +36,7 @@ export const SearchRecipe = () => {
 
       {recipeData && <RecipeList recipeData={recipeData} />}
 
-      {/*         
-        {recipeData && recipeData.results.map((recipe) => {return (
-            <div key = {recipe.id}>
-            <h5>{recipe.title}</h5>
-            <img src= {recipe.image}></img>
-            </div>
-            
-        )}
-        )} */}
+     
     </div>
   );
 };
