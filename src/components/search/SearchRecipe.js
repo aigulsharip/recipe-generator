@@ -26,14 +26,7 @@ export const SearchRecipe = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search Recipe"
-        onChange={handleChange}
-      ></input>
-
-      <button onClick={getRecipes}> Search Recipe </button>
-
+       
       {recipeData && <RecipeList recipeData={recipeData} />}
 
      

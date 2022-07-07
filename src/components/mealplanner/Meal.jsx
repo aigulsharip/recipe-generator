@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 export default function Meal({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
 
-  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
-  //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
+  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
   useEffect(() => {
     fetch(
@@ -24,7 +24,7 @@ export default function Meal({ meal }) {
       <h1>{meal.title}</h1>
       <img src={imageUrl} alt="recipe" />
 
-      <ul>
+      <ul className="instructions">
         <li>Preparation time: {meal.readyInMinutes} minutes</li>
         <li>Number of servings: {meal.servings}</li>
       </ul>

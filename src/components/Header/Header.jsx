@@ -1,17 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MealPlanner from "../mealplanner/MealPlanner";
 import RecipesByIngredients from "../RecipeByIngredients/RecipesByIngredients";
 import { SearchRecipe } from "../search/SearchRecipe";
 import RandomRecipe from "../RandomRecipe/RandomRecipe";
+import RecipeList from "../search/RecipeList";
 
 const Header = () => {
+  const [searchItem, setSearchItem] = useState("");
+  const [recipeData, setRecipeData] = useState("");
+  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
+
+  const handleChange = (event) => {
+    setSearchItem(event.target.value);
+    console.log(event.target.value)
+  };
+
+  const getRecipes = () => {
+    console.log("checking")
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItem}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setRecipeData(data);
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("Error");
+      });
+  };
+
   return (
     <div>
       <Router>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
-            Navbar
+            Recipe App
           </a>
           <button
             className="navbar-toggler"
@@ -38,31 +64,6 @@ const Header = () => {
                 </a>
               </li>
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </div>
-              </li>
               <li className="nav-item">
                 <a className="nav-link" href="/mealplanner">
                   Meal Planner
@@ -75,6 +76,18 @@ const Header = () => {
                 </a>
               </li>
             </ul>
+            <div className="d-flex" role="search" style={{ marginLeft: "550px" }}>
+              <input
+                className="form-control me-2"
+                placeholder="Search Recipes"
+                aria-label="Search"
+                onChange={handleChange}
+              />
+              <button className="btn btn-outline-success" onClick={getRecipes}  >
+                Search
+              </button>
+            </div>
+           
           </div>
         </nav>
 
@@ -87,9 +100,11 @@ const Header = () => {
             element={<RecipesByIngredients />}
           />
           <Route exact path="/Randomrecipe" element={<RandomRecipe />} />
-          
         </Routes>
       </Router>
+
+      {recipeData && <RecipeList recipeData={recipeData} />}
+
     </div>
   );
 };

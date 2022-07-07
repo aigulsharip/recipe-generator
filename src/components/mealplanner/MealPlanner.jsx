@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import MealList from "./MealList";
+import "./mealplanner.css";
+
 
 const MealPlanner = () => {
   const [mealData, setMealData] = useState();
   const [calories, setCalories] = useState(2000);
-  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
-  //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
+  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
   function handleChange(event) {
     setCalories(event.target.value);
@@ -33,7 +35,7 @@ const MealPlanner = () => {
         ></input>
       </section>
 
-      <button onClick={getMealData}> Get Daily Meal</button>
+      <button className = "btn btn-primary" onClick={getMealData}> Get Daily Meal</button>
 
       {mealData && <MealList mealData={mealData} />}
     </div>
