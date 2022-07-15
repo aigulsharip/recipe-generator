@@ -1,0 +1,22 @@
+body{
+    
+}
+
+.main {
+    margin-top: 40px;
+    background-color: burlywood;
+    width: 750px;
+    height: 500px;
+    display: flex;
+    margin-left: 400px;
+    
+}
+
+.main_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 95%;
+    height: 85%;
+    background-color: white;
+}

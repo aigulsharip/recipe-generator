@@ -6,7 +6,7 @@ import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import DoneIcon from "@mui/icons-material/Done";
-
+import "./recipesbyings.css";
 import allIngredients from "../popularIngredients/allIngredients";
 
 //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
@@ -17,34 +17,9 @@ const RecipesByIngredients = () => {
   const [ingredient, setIngredient] = useState(null);
   const [ings, setIngs] = useState([]);
 
-
-  const getEachIngredient = (event) => {
-    setIngredient(event.target.value);
-    console.log(event.target.value);
-  };
-
-  function addEachIngredient(event, value) {
-    //setIngredient(value);
-    console.log(value);
-
-    //setIngredient(event.target.value);
-    //console.log(event.target.value);
-  }
-
   const handleAddIngredients = () => {
     const newIngs = { key: myNewID(), label: ingredient.name };
-    /*
-    var newIngs;
-    if (ingredient.key == null) {
-      newIngs = { key: myNewID(), label: ingredient.name };
-    } else {
-      newIngs = { key: ingredient.key, label: ingredient.name };
-    }
-    */
-
-    //console.log(ingredients)
     setIngs(() => [...ings, newIngs]);
-    //setIngs(() => [...ings, ingredient]);
   };
 
   const handleAddIngredientsFromList = (chipToAdd) => {
@@ -78,41 +53,84 @@ const RecipesByIngredients = () => {
 
   return (
     <div>
-      <h1 className="">Searching by Ingredients</h1>
-     
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={allIngredients}
-        getOptionLabel={(option) => option.name}
-        onChange={(event, value) => {
-          setIngredient(value);
-          console.log(value);
-        }}
-        freeSolo
-        renderInput={(params) => <TextField {...params} label="Ingredients" />}
-      />
+      <div className="row mt-3">
+        <div className="col-2"></div>
+        <div className="col-8">
+          <div class="card text-center bg-info">
+            <div class="card-header ">
+              <h1>Find recipes by your ingredients here</h1>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body border-0">
+                    <h5 class="card-title">
+                      Tell us what ingredients you have
+                    </h5>
 
-      {/* <input  
-        value={ingredient}
-        type="text"
-        placeholder="Enter Ingredient"
-        onChange={getEachIngredient}
-      /> */}
+                    <Autocomplete
+                      disablePortal
+                      id="combo-box-demo"
+                      options={allIngredients}
+                      getOptionLabel={(option) => option.name}
+                      onChange={(event, value) => {
+                        setIngredient(value);
+                        console.log(value);
+                      }}
+                      freeSolo
+                      renderInput={(params) => (
+                        <TextField {...params} label="Ingredients" />
+                      )}
+                    />
+                    <button
+                      className="btn btn-primary "
+                      onClick={handleAddIngredients}
+                    >
+                      Add Ingredient
+                    </button>
 
-      <button onClick={handleAddIngredients}>Add Ingredient</button>
+                    <button
+                      className="btn btn-success"
+                      onClick={getRecipesByIngredients}
+                    >
+                      Search Recipe
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Your ingredients: </h5>
+                    <div>
+                      {ings.length !== 0 ?
+                       <div>
+                       {ings.map((ingredient) => (
+                        <Chip
+                          key={ingredient.key}
+                          color="success"
+                          onDelete={() => handleDeleteIngredients(ingredient)}
+                          label={ingredient.label}
+                        />
+                      ))}
+                       </div>
+                       
+                      :
+                      <h6 className="text-muted">No ingredients</h6>}
+                        
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      <h2>Your ingredients</h2>
-      <div>
-        {ings.map((ingredient) => (
-          <Chip
-            key={ingredient.key}
-            color="success"
-            onDelete={() => handleDeleteIngredients(ingredient)}
-            label={ingredient.label}
-          />
-        ))}
+            <div class="card-footer text-muted">Any Footer</div>
+          </div>
+        </div>
+        <div className="col-2"></div>
       </div>
+
       <br />
 
       <br />
@@ -128,13 +146,6 @@ const RecipesByIngredients = () => {
           label={chipToAdd.label}
         />
       ))}
-
-      <br />
-      <br />
-
-      <button onClick={getRecipesByIngredients}> Search Recipe </button>
-
-      <br />
 
       {recipeData && <RecipeListIng recipeData={recipeData} />}
     </div>

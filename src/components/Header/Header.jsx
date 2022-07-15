@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import MealPlanner from "../mealplanner/MealPlanner";
 import RecipesByIngredients from "../RecipeByIngredients/RecipesByIngredients";
-import { SearchRecipe } from "../search/SearchRecipe";
 import RandomRecipe from "../RandomRecipe/RandomRecipe";
 import RecipeList from "../search/RecipeList";
 
@@ -53,11 +52,7 @@ const Header = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Search by keyword
-                </a>
-              </li>
+              
               <li className="nav-item active">
                 <a className="nav-link" href="searchByIngredients">
                   Search By Ingredients
@@ -92,7 +87,6 @@ const Header = () => {
         </nav>
 
         <Routes>
-          <Route path="/" element={<SearchRecipe />} />
           <Route exact path="/mealplanner" element={<MealPlanner />} />
           <Route
             exact
