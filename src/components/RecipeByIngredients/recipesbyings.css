@@ -1,22 +1,33 @@
-body{
-    
+* {
+   margin:0;
+   padding: 0;;
 }
+.popularIngs {
+   
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 20px;
+  border-collapse: separate;
+}
+/*  
+article {
+  display: flex;
+  flex-direction: row;
+ 
+  
+  
+}
+ 
 
-.main {
-    margin-top: 40px;
-    background-color: burlywood;
-    width: 750px;
-    height: 500px;
-    display: flex;
-    margin-left: 400px;
-    
-}
 
-.main_box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 95%;
-    height: 85%;
-    background-color: white;
-}
+.recipeCard {
+  display: flex;
+  flex-direction: row; 
+  padding: 2rem;
+  margin: 1 1rem;
+  width: 18 rem;
+  box-shadow: 0 4px 8px 2px rgb(77, 77, 77);
+} 
+ */
+
+

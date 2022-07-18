@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+
 const RecipeListIng = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
-  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
-  const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
+  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
   const getRecipe = ({ id }) => {
     fetch(
@@ -50,7 +51,7 @@ const RecipeListIng = ({ recipeData }) => {
         {recipeData &&
           recipeData.map((recipe) => {
             return (
-              <div key={recipe.id}>
+              <div key={recipe.id} className = "recipeCard">
                 <h2>{recipe.title}</h2>
                 <img src={recipe.image} alt={recipe.title}></img>
 

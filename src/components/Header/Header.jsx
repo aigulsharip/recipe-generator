@@ -87,6 +87,7 @@ const Header = () => {
         </nav>
 
         <Routes>
+        <Route exact path="/" element={<RecipesByIngredients />} />
           <Route exact path="/mealplanner" element={<MealPlanner />} />
           <Route
             exact
@@ -96,6 +97,8 @@ const Header = () => {
           <Route exact path="/Randomrecipe" element={<RandomRecipe />} />
         </Routes>
       </Router>
+
+      
 
       {recipeData && <RecipeList recipeData={recipeData} />}
 

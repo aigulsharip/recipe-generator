@@ -77,14 +77,14 @@ img {
 
  }
 
- article {
+ /* article {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     margin: 0 1rem;
-    max-width: 18 rem;
+    width: 18 rem;
     box-shadow: 0 4px 8px 2px rgb(77, 77, 77);
- }
+ } */
 
  .instructions {
     margin-top: 1rem;
@@ -95,7 +95,7 @@ img {
 
  a {
     text-decoration: none;
-    width:fit-content;
+    width:200px;
     padding: 0.5rem 1 rem; 
 
  }

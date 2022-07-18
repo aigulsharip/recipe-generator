@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import MealList from "./MealList";
 import "./mealplanner.css";
 
-
 const MealPlanner = () => {
   const [mealData, setMealData] = useState();
   const [calories, setCalories] = useState(2000);
@@ -27,15 +26,28 @@ const MealPlanner = () => {
   }
   return (
     <div className="App">
-      <section className="controls">
-        <input
-          type="number"
-          placeholder="Enter calories (e.g 2000)"
-          onChange={handleChange}
-        ></input>
-      </section>
+      <div class="card text-center mt-3">
+        <div class="card-header"><h3>Meal planner for day</h3></div>
+        <div class="card-body">
+          
+          <p class="card-text">
+            Please enter the maximum number of calories 
+          </p>
+         
+          <section className="controls">
+            <input
+              type="number"
+              placeholder="Enter calories (e.g 2000)"
+              onChange={handleChange}
+            ></input>
+          </section>
 
-      <button className = "btn btn-primary" onClick={getMealData}> Get Daily Meal</button>
+          <button className="btn btn-primary" onClick={getMealData}>
+            {" "}
+            Get Daily Meal
+          </button>
+        </div>
+      </div>
 
       {mealData && <MealList mealData={mealData} />}
     </div>
