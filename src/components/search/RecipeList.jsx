@@ -45,36 +45,82 @@ const RecipeList = ({ recipeData }) => {
   }, []);
 
   return (
-    <div>
-      <article>
-        {recipeData &&
-          recipeData.results.map((recipe) => {
-            return (
-              <div key={recipe.id}>
-                <h2>{recipe.title}</h2>
-                <img src={recipe.image} alt={recipe.title}></img>
+    
+    <div
+      class="card-group"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gridAutoRows: "55 0px",
+        gridColumnGap: "1rem",
+        gridRowGap: "1rem",
+      }}
+    >
+      {recipeData &&
+        recipeData.results.map((recipe) => (
+          <div
+            key={recipe.id}
+            className="card shadow-lg p-3 m-3 bg-white rounded h-100 text-center"
+          >
+            <img
+              className="card-img-top"
+              src={recipe.image}
+              alt="Card image cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{recipe.title}</h5>
+              {mealInfo &&
+                mealInfo.map((meal) => {
+                  if (recipe.id === meal.id) {
+                    return (
+                      <ul>
+                        <li>Preparation time: {meal.readyInMinutes} minutes</li>
+                        <li>Number of servings: {meal.servings}</li>
+                      </ul>
+                    );
+                  } else {
+                    return <></>;
+                  }
+                })}
 
-                {mealInfo &&
-                  mealInfo.map((meal) => {
-                    if (recipe.id === meal.id) {
-                      return (
-                        <ul>
-                          <li>
-                            Preparation time: {meal.readyInMinutes} minutes
-                          </li>
-                          <li>Number of servings: {meal.servings}</li>
-                        </ul>
-                      );
-                    } else {
-                      return <></>;
-                    }
-                  })}
-              </div>
-            );
-          })}
-
-      </article>
+              <button class="btn btn-info">Recipe Details</button>
+            </div>
+          </div>
+        ))}
     </div>
+
+
+
+    // <div>
+    //   <article>
+    //     {recipeData &&
+    //       recipeData.results.map((recipe) => {
+    //         return (
+    //           <div key={recipe.id}>
+    //             <h2>{recipe.title}</h2>
+    //             <img src={recipe.image} alt={recipe.title}></img>
+
+    //             {mealInfo &&
+    //               mealInfo.map((meal) => {
+    //                 if (recipe.id === meal.id) {
+    //                   return (
+    //                     <ul>
+    //                       <li>
+    //                         Preparation time: {meal.readyInMinutes} minutes
+    //                       </li>
+    //                       <li>Number of servings: {meal.servings}</li>
+    //                     </ul>
+    //                   );
+    //                 } else {
+    //                   return <></>;
+    //                 }
+    //               })}
+    //           </div>
+    //         );
+    //       })}
+
+    //   </article>
+    // </div>
   );
 };
 

@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
-import img from "../assets/img.jpeg";
+import { Link } from "react-router-dom";
+
 
 const RecipeCard = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
-  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
- 
-  
+  const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
+
+
   const getRecipes = () => {
-    
     let generateIDs = "";
     // for(let element in recipeData) {
     //   generateIDs += element.id + ",";
     //   console.log(generateIDs)
     // }
-    // recipeData.forEach((element) => {
-    //   generateIDs += element.id + ",";
-    // });
+    recipeData.forEach((element) => {
+      generateIDs += element.id + ",";
+    });
 
     fetch(
       `https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY}&ids=${generateIDs}`
-      
     )
       .then((response) => response.json())
       .then((data) => {
@@ -36,12 +36,9 @@ const RecipeCard = ({ recipeData }) => {
     getRecipes();
   }, []);
 
-  
-  
-
   return (
     <div
-      class="card-group"
+      className="card-group"
       style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
@@ -56,7 +53,11 @@ const RecipeCard = ({ recipeData }) => {
             key={recipe.id}
             className="card shadow-lg p-3 m-3 bg-white rounded h-100 text-center"
           >
-            <img className="card-img-top" src={recipe.image} alt="Card image cap" />
+            <img
+              className="card-img-top"
+              src={recipe.image}
+              alt="Card image cap"
+            />
             <div className="card-body">
               <h5 className="card-title">{recipe.title}</h5>
               {mealInfo &&
@@ -72,16 +73,15 @@ const RecipeCard = ({ recipeData }) => {
                     return <></>;
                   }
                 })}
-              
-            
-            <button class= "btn btn-info">
-                    Recipe Details
-                  </button>
-            
+
+              {/* <button className="btn btn-info">Recipe Details</button>
+               */}
+               
+              <Link  to = {`/details/${recipe.id}`} className="btn btn-info">Recipe Details</Link>
+
             </div>
           </div>
         ))}
-      
     </div>
   );
 };
