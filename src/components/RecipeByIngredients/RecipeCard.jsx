@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
-  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
-  const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
+  //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
 
 
   const getRecipes = () => {
@@ -57,6 +57,7 @@ const RecipeCard = ({ recipeData }) => {
               className="card-img-top"
               src={recipe.image}
               alt="Card image cap"
+              
             />
             <div className="card-body">
               <h5 className="card-title">{recipe.title}</h5>

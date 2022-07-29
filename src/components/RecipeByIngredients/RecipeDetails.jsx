@@ -7,10 +7,9 @@ const RecipeDetails = () => {
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
 
-  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
-  const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
-
+  //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
 
   useEffect(() => {
     if (recipeId) {
@@ -43,26 +42,30 @@ const RecipeDetails = () => {
           Preparation time: {recipeData.readyInMinutes} minutes Number of
           servings: {recipeData.servings}
         </p>
-        <img src={recipeData.image} alt={recipeData.title}></img>
+        <img
+          src={recipeData.image}
+          alt={recipeData.title}
+          style={{ width: "500px" }}
+        ></img>
 
         <p>Gluten-free: {recipeData.glutenFree ? "yes" : "no"}</p>
         <p>Vegan: {recipeData.vegan ? "yes" : "no"}</p>
         <p>Vegatarian: {recipeData.vegetarian ? "yes" : "no"}</p>
 
-        {/* <h5>Ingredients:</h5>
-         {recipeData.extendedIngredients.map((ingredients) => (
+        <h5>Ingredients:</h5>
+        {recipeData?.extendedIngredients?.map((ingredients) => (
           <p key={ingredients.id}>
             {ingredients.nameClean} - {ingredients.amount} {ingredients.unit}
           </p>
         ))}
-       
-
-        <h5>Instructions:</h5>
+        {/* {console.log(recipeData.analyzedInstructions[0])} */}
+        {/* <h5>Instructions:</h5>
         {recipeData.analyzedInstructions[0].steps.map((steps) => (
           <p key={steps.number}>
             {steps.number}. {steps.step}
           </p>
-        ))}  */}
+        ))} */}
+        
       </div>
     </div>
   );

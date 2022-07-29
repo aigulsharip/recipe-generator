@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Link from "react-dom"
 
 const RecipeList = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
-  //const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
-  const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
+  const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
+  //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
   const getRecipe = ({ id }) => {
     fetch(
@@ -84,6 +85,10 @@ const RecipeList = ({ recipeData }) => {
                 })}
 
               <button class="btn btn-info">Recipe Details</button>
+              
+              {/* <Link  to = {`/details/${recipe.id}`} className="btn btn-info">Recipe Details</Link> */}
+
+
             </div>
           </div>
         ))}
