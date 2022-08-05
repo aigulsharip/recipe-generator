@@ -38,7 +38,7 @@ const Header = () => {
       
       <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
         <a className="navbar-brand" href="#">
-          Recipe App
+          Recipe Generator
         </a>
         <button
           className="navbar-toggler"

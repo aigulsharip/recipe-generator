@@ -96,36 +96,7 @@ const RecipeList = ({ recipeData }) => {
 
 
 
-    // <div>
-    //   <article>
-    //     {recipeData &&
-    //       recipeData.results.map((recipe) => {
-    //         return (
-    //           <div key={recipe.id}>
-    //             <h2>{recipe.title}</h2>
-    //             <img src={recipe.image} alt={recipe.title}></img>
-
-    //             {mealInfo &&
-    //               mealInfo.map((meal) => {
-    //                 if (recipe.id === meal.id) {
-    //                   return (
-    //                     <ul>
-    //                       <li>
-    //                         Preparation time: {meal.readyInMinutes} minutes
-    //                       </li>
-    //                       <li>Number of servings: {meal.servings}</li>
-    //                     </ul>
-    //                   );
-    //                 } else {
-    //                   return <></>;
-    //                 }
-    //               })}
-    //           </div>
-    //         );
-    //       })}
-
-    //   </article>
-    // </div>
+    
   );
 };
 
