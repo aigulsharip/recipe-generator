@@ -20,7 +20,7 @@ const RecipeDetails = () => {
         .then((response) => response.json())
         .then((data) => {
           setRecipeData(data);
-          console.log(data);
+          console.log(data.analyzedInstructions[0].steps[0].step);
           setLoading(false);
           setError(false);
         })
@@ -35,12 +35,12 @@ const RecipeDetails = () => {
   if (isLoading) return <div>Loading</div>;
   if (isError) return <div>Error</div>;
   return (
-    <div>
+    <div style = {{margin:"30px"}}>
       <div>
         <h2 className="text-center">{recipeData.title}</h2>
         <p className="text-right">
-          Preparation time: {recipeData.readyInMinutes} minutes 
-          Number of servings: {recipeData.servings}
+          Preparation time: {recipeData.readyInMinutes} minutes Number of
+          servings: {recipeData.servings}
         </p>
         <img
           src={recipeData.image}
@@ -58,14 +58,13 @@ const RecipeDetails = () => {
             {ingredients.nameClean} - {ingredients.amount} {ingredients.unit}
           </p>
         ))}
-        {/* {console.log(recipeData.analyzedInstructions[0])} */}
-        {/* <h5>Instructions:</h5>
-        {recipeData.analyzedInstructions[0].steps.map((steps) => (
-          <p key={steps.number}>
-            {steps.number}. {steps.step}
-          </p>
-        ))} */}
-        
+        <h5>Instructions:</h5>
+        {recipeData?.analyzedInstructions &&
+          recipeData?.analyzedInstructions[0].steps.map((items) => (
+            <p key={items.number}>
+              {items.number}. {items.step}
+            </p>
+          ))}
       </div>
     </div>
   );

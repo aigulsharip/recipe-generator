@@ -20,21 +20,7 @@ const Header = () => {
     console.log(event.target.value);
   };
 
-  // const getRecipes = () => {
-  //   console.log("checking");
-  //   fetch(
-  //     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItem}`
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setRecipeData(data);
-  //       console.log(data);
-  //     })
-  //     .catch(() => {
-  //       console.log("Error");
-  //     });
-  // };
-
+ 
   return (
     <div>
       <Router>
@@ -73,7 +59,25 @@ const Header = () => {
                   Random Recipe
                 </a>
               </li>
+
+              <form class="form-inline my-2 my-lg-0">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+            
             </ul>
+
+            {/*             
             <div
               className="d-flex"
               role="search"
@@ -92,7 +96,7 @@ const Header = () => {
               >
                 Search
               </Link>
-            </div>
+            </div> */}
           </div>
         </nav>
         <Routes>
