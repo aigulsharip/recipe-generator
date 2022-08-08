@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import RecipeList from "./RecipeList";
+import { Outlet } from "react-router-dom";
+
 export const SearchRecipe = () => {
   const [searchItem, setSearchItem] = useState("");
   const [recipeData, setRecipeData] = useState("");
@@ -8,9 +9,11 @@ export const SearchRecipe = () => {
 
   const handleChange = (event) => {
     setSearchItem(event.target.value);
+    console.log(event.target.value);
   };
 
   const getRecipes = () => {
+    console.log("checking");
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItem}`
     )
@@ -24,12 +27,23 @@ export const SearchRecipe = () => {
       });
   };
 
-  return (
-    <div>
-       
-      {recipeData && <RecipeList recipeData={recipeData} />}
+  // const handleChange = (event) => {
+  //   setSearchItem(event.target.value);
+  // };
 
-     
-    </div>
-  );
+  // const getRecipes = () => {
+  //   fetch(
+  //     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItem}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setRecipeData(data);
+  //       console.log(data);
+  //     })
+  //     .catch(() => {
+  //       console.log("Error");
+  //     });
+  // };
+
+  return <Outlet />;
 };

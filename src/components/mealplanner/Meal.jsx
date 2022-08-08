@@ -27,7 +27,7 @@ export default function Meal({ meal }) {
     <div>
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col-sm">
             <div className="card-group text-centered">
               <div className="card shadow-lg p-3 m-3 bg-white rounded h-100 text-center">
                 <img className="card-img-top" src={imageUrl} alt="Card image cap" />

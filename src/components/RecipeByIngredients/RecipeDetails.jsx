@@ -39,8 +39,8 @@ const RecipeDetails = () => {
       <div>
         <h2 className="text-center">{recipeData.title}</h2>
         <p className="text-right">
-          Preparation time: {recipeData.readyInMinutes} minutes Number of
-          servings: {recipeData.servings}
+          Preparation time: {recipeData.readyInMinutes} minutes 
+          Number of servings: {recipeData.servings}
         </p>
         <img
           src={recipeData.image}
