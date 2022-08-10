@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useWindowSize } from "../../hooks/useWindowsSize";
+
 
 const RecipeCard = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
+  const { width } = useWindowSize();
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
   //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
 
   const getRecipes = () => {
     let generateIDs = "";
-    // for(let element in recipeData) {
-    //   generateIDs += element.id + ",";
-    //   console.log(generateIDs)
-    // }
+    
     recipeData.forEach((element) => {
       generateIDs += element.id + ",";
     });
@@ -39,7 +39,7 @@ const RecipeCard = ({ recipeData }) => {
       className="card-group"
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateColumns: width <= 720 ? "1fr" : "1fr 1fr 1fr",
         gridAutoRows: "500px",
         gridColumnGap: "1rem",
         gridRowGap: "1rem",

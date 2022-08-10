@@ -15,7 +15,7 @@ const RecipeList = ({ recipeData }) => {
       className="card-group"
       style={{
         display: "grid",
-        gridTemplateColumns: width <= 550 ? "1fr" : "1fr 1fr 1fr",
+        gridTemplateColumns: width <= 720 ? "1fr" : "1fr 1fr 1fr",
         gridAutoRows: "55 0px",
         gridColumnGap: "1rem",
         gridRowGap: "1rem",

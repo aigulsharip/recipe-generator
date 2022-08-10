@@ -11,7 +11,7 @@ export const SearchedItem = () => {
 
   const getRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItemParam}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchItemParam}&number=9`
     )
       .then((response) => response.json())
       .then((data) => {
