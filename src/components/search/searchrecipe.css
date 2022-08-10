@@ -1,0 +1,36 @@
+
+/* .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meals {
+    display: flex;
+} */
+
+.meal {
+    display: grid;
+    grid-template-columns: "1fr 1fr 1fr";
+    grid-auto-rows: "55 0px";
+    grid-column-gap: "1 rem";
+    grid-row-gap: "1rem";
+    
+}
+
+
+
+
+@media only screen and (max-width:550px) {
+    .meal {
+        display: grid;
+        grid-template-columns: "1fr";
+        grid-auto-rows: "55 0px";
+        grid-column-gap: "1 rem";
+        grid-row-gap: "1rem";
+        
+    }
+    
+  
+    
+  }

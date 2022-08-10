@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RecipeList from "./RecipeList";
+import "./searchrecipe.css"
 
 export const SearchedItem = () => {
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
@@ -32,6 +33,10 @@ export const SearchedItem = () => {
   if (!searchItemParam) return <>Item parameter not found</>;
 
   return (
-    <div>{recipeData && <RecipeList recipeData={recipeData} />}werfew</div>
+    <div className="main">
+      <section className="meals">
+        {recipeData && <RecipeList recipeData={recipeData} />}
+      </section>
+    </div>
   );
 };

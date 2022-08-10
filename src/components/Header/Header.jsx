@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MealPlanner from "../mealplanner/MealPlanner";
 import RecipesByIngredients from "../RecipeByIngredients/RecipesByIngredients";
 import RandomRecipe from "../RandomRecipe/RandomRecipe";
-import RecipeList from "../search/RecipeList";
 import RecipeDetails from "../RecipeByIngredients/RecipeDetails";
 import { SearchRecipe } from "../search/SearchRecipe";
 
@@ -11,7 +10,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { SearchedItem } from "../search/SearchedItem";
 const Header = () => {
   const [searchItem, setSearchItem] = useState("");
-  const [recipeData, setRecipeData] = useState("");
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
@@ -20,7 +18,6 @@ const Header = () => {
     console.log(event.target.value);
   };
 
- 
   return (
     <div>
       <Router>
@@ -59,30 +56,8 @@ const Header = () => {
                   Random Recipe
                 </a>
               </li>
-
-              <form class="form-inline my-2 my-lg-0">
-              <input
-                class="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                class="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-            
             </ul>
-
-            {/*             
-            <div
-              className="d-flex"
-              role="search"
-              style={{ marginLeft: "550px" }}
-            >
+            <div className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 placeholder="Search Recipes"
@@ -96,7 +71,9 @@ const Header = () => {
               >
                 Search
               </Link>
-            </div> */}
+            </div>
+
+           
           </div>
         </nav>
         <Routes>
@@ -114,8 +91,6 @@ const Header = () => {
           <Route exact path="/details/:recipeId" element={<RecipeDetails />} />
         </Routes>
       </Router>
-
-      {/* {recipeData && <RecipeList recipeData={recipeData} />} */}
     </div>
   );
 };

@@ -59,6 +59,10 @@ const popularIngredients = [
     key: 15,
     label: "mushrooms",
   },
+  {
+    key: 16,
+    label: "brocolli",
+  }
 ];
 
 export default popularIngredients;

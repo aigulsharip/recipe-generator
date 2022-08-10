@@ -134,7 +134,6 @@ const RecipesByIngredients = () => {
               </div>
             </div>
 
-            <div className="card-footer text-muted">Any Footer</div>
           </div>
         </div>
         <div className="col-2"></div>
@@ -146,7 +145,7 @@ const RecipesByIngredients = () => {
 
       <div className="container" >
         <h1>Popular Ingredients</h1>
-        <div style = {{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", gridColumnGap: "0.5rem", gridRowGap:"0.5rem", margin: "1rem"}}>
+        <div style = {{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gridColumnGap: "0.5rem", gridRowGap:"0.5rem", margin: "1rem"}}>
         {popularIngredients.map((chipToAdd) => (
         <Chip
           key={chipToAdd.key}
