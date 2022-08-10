@@ -10,11 +10,9 @@ import "./recipesbyings.css";
 import allIngredients from "../popularIngredients/allIngredients";
 import RecipeCard from "./RecipeCard";
 
-
 const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
 //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
-
 
 const RecipesByIngredients = () => {
   const [recipeData, setRecipeData] = useState([]);
@@ -54,7 +52,6 @@ const RecipesByIngredients = () => {
       });
   };
 
-  
   return (
     <div>
       <div className="row mt-3">
@@ -133,7 +130,6 @@ const RecipesByIngredients = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <div className="col-2"></div>
@@ -143,28 +139,31 @@ const RecipesByIngredients = () => {
 
       <br />
 
-      <div className="container" >
+      <div className="container">
         <h1>Popular Ingredients</h1>
-        <div style = {{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gridColumnGap: "0.5rem", gridRowGap:"0.5rem", margin: "1rem"}}>
-        {popularIngredients.map((chipToAdd) => (
-        <Chip
-          key={chipToAdd.key}
-          color="primary"
-          deleteIcon={<DoneIcon />}
-          onDelete={() => handleAddIngredientsFromList(chipToAdd)}
-          label={chipToAdd.label}
-        />
-      ))}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr 1fr",
+            gridColumnGap: "0.5rem",
+            gridRowGap: "0.5rem",
+            margin: "1rem",
+          }}
+        >
+          {popularIngredients.map((chipToAdd) => (
+            <Chip
+              key={chipToAdd.key}
+              color="primary"
+              deleteIcon={<DoneIcon />}
+              onDelete={() => handleAddIngredientsFromList(chipToAdd)}
+              label={chipToAdd.label}
+            />
+          ))}
+        </div>
+        <RecipeCard recipeData={recipeData} />
       </div>
-      <RecipeCard recipeData={recipeData} />
-      </div>
-
-      
-
-      
     </div>
   );
 };
-
 
 export default RecipesByIngredients;

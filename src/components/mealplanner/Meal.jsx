@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import RecipeDetails from "../RecipeByIngredients/RecipeDetails";
 
 export default function Meal({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
@@ -8,7 +7,6 @@ export default function Meal({ meal }) {
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
   //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
-
 
   useEffect(() => {
     fetch(
@@ -30,7 +28,11 @@ export default function Meal({ meal }) {
           <div className="col-sm">
             <div className="card-group text-centered">
               <div className="card shadow-lg p-3 m-3 bg-white rounded h-100 text-center">
-                <img className="card-img-top" src={imageUrl} alt="Card image cap" />
+                <img
+                  className="card-img-top"
+                  src={imageUrl}
+                  alt="Card image cap"
+                />
                 <div className="card-body">
                   <h4 className="card-title ">{meal.title}</h4>
                   <p className="card-text">
@@ -39,9 +41,9 @@ export default function Meal({ meal }) {
                       <li>Number of servings: {meal.servings}</li>
                     </ul>
                   </p>
-                  <Link  to = {`/details/${meal.id}`} className="btn btn-info">Recipe Details</Link>
-
-                  
+                  <Link to={`/details/${meal.id}`} className="btn btn-info">
+                    Recipe Details
+                  </Link>
                 </div>
               </div>
             </div>

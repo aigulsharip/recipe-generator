@@ -35,7 +35,7 @@ const RecipeDetails = () => {
   if (isLoading) return <div>Loading</div>;
   if (isError) return <div>Error</div>;
   return (
-    <div style = {{margin:"30px"}}>
+    <div style={{ margin: "30px" }}>
       <div>
         <h2 className="text-center">{recipeData.title}</h2>
         <p className="text-right">

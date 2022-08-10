@@ -9,7 +9,6 @@ const MealPlanner = () => {
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
   //const API_KEY = "514706b6799f4d3586354e0d7c30ac5e"; //mailru
 
-
   function handleChange(event) {
     setCalories(event.target.value);
   }
@@ -29,13 +28,12 @@ const MealPlanner = () => {
   return (
     <div className="App">
       <div class="card text-center mt-3">
-        <div class="card-header"><h3>Meal planner for day</h3></div>
+        <div class="card-header">
+          <h3>Meal planner for day</h3>
+        </div>
         <div class="card-body">
-          
-          <p class="card-text">
-            Please enter the maximum number of calories 
-          </p>
-         
+          <p class="card-text">Please enter the maximum number of calories</p>
+
           <section className="controls">
             <input
               type="number"

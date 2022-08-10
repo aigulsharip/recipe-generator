@@ -1,47 +1,26 @@
 import React, { useState, useEffect } from "react";
-import "./searchrecipe.css"
+import "./searchrecipe.css";
+
+import { useWindowSize } from "../../hooks/useWindowsSize";
 
 const RecipeList = ({ recipeData }) => {
   const [mealInfo, setMealInfo] = useState("");
+  const { width } = useWindowSize();
   const API_KEY = "33e71d5b3fa0499f892952e41360671a"; // sharipaigul
   //const API_KEY = "7c570415bf7948e8a71509f9598ddebe"; // nuedukz
 
   
-
-  const getRecipes = () => {
-    // https://api.spoonacular.com/recipes/informationBulk?ids=715538,716429
-
-    let generateIDs = "";
-    recipeData.forEach((element) => {
-      generateIDs += element.id + ",";
-    });
-
-    fetch(
-      `https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY}&ids=${generateIDs}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealInfo(data);
-        console.log(data);
-      })
-      .catch(() => {
-        console.log("error");
-      });
-  };
-
-
   return (
     <div
-      class="card-group meal"
+      className="card-group"
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateColumns: width <= 550 ? "1fr" : "1fr 1fr 1fr",
         gridAutoRows: "55 0px",
         gridColumnGap: "1rem",
         gridRowGap: "1rem",
       }}
     >
-      
       {recipeData &&
         recipeData.length > 0 &&
         recipeData.map((recipe) => (
@@ -70,7 +49,7 @@ const RecipeList = ({ recipeData }) => {
                   }
                 })}
 
-              <button class="btn btn-info">Recipe Details</button>
+              <button className="btn btn-info">Recipe Details</button>
 
               {/* <Link  to = {`/details/${recipe.id}`} className="btn btn-info">Recipe Details</Link> */}
             </div>

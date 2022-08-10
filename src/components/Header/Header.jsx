@@ -72,8 +72,6 @@ const Header = () => {
                 Search
               </Link>
             </div>
-
-           
           </div>
         </nav>
         <Routes>

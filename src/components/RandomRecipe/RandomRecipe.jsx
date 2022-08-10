@@ -33,44 +33,48 @@ const RandomRecipe = () => {
         </div>
       </div>
       <div className="m-5">
-      {recipeData &&
-         recipeData.recipes.map((recipe) => {
-           return (
-             <div key={recipe.id}>
-               <h2 className="text-center">{recipe.title}</h2>
-              <img src={recipe.image} alt={recipe.title} className= "rounded mx-auto d-block "></img>
-              <h5 className="fw-bold mt-2">Characterics:</h5>
-                <p className="">Preparation time: {recipe.readyInMinutes} minutes</p>
+        {recipeData &&
+          recipeData.recipes.map((recipe) => {
+            return (
+              <div key={recipe.id}>
+                <h2 className="text-center">{recipe.title}</h2>
+                <img
+                  src={recipe.image}
+                  alt={recipe.title}
+                  className="rounded mx-auto d-block "
+                ></img>
+                <h5 className="fw-bold mt-2">Characterics:</h5>
+                <p className="">
+                  Preparation time: {recipe.readyInMinutes} minutes
+                </p>
                 <p>Number of servings: {recipe.servings}</p>
 
-               <p className="mt-2">Gluten-free: {recipe.glutenFree ? "yes" : "no"}</p>
-               <p>Vegan: {recipe.vegan ? "yes" : "no"}</p>
-               <p>Vegatarian: {recipe.vegetarian ? "yes" : "no"}</p>
+                <p className="mt-2">
+                  Gluten-free: {recipe.glutenFree ? "yes" : "no"}
+                </p>
+                <p>Vegan: {recipe.vegan ? "yes" : "no"}</p>
+                <p>Vegatarian: {recipe.vegetarian ? "yes" : "no"}</p>
 
-               <h5 className="fw-bold">Ingredients:</h5>
-               {recipe.extendedIngredients.map((ingredients) => (
+                <h5 className="fw-bold">Ingredients:</h5>
+                {recipe.extendedIngredients.map((ingredients) => (
+                  <p key={ingredients.id}>
+                    {ingredients.nameClean} - {ingredients.amount}{" "}
+                    {ingredients.unit}
+                  </p>
+                ))}
 
-                 <p key={ingredients.id}>
-                   {ingredients.nameClean} - {ingredients.amount} {ingredients.unit}
-                 </p>
-               ))}
-
-               <h5  className="fw-bold">Instructions:</h5>
-               {recipe.analyzedInstructions[0].steps.map((steps) => (
-                 <p key={steps.number}>
-                   {steps.number}. {steps.step}
-                 </p>
-               ))}
-             </div>
-           );
-         })}
-
+                <h5 className="fw-bold">Instructions:</h5>
+                {recipe.analyzedInstructions[0].steps.map((steps) => (
+                  <p key={steps.number}>
+                    {steps.number}. {steps.step}
+                  </p>
+                ))}
+              </div>
+            );
+          })}
       </div>
-      
-
     </div>
   );
 };
-
 
 export default RandomRecipe;
